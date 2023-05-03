@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { AppDataSource } from "../../utils/data-source";
 import { Show } from "../../db/entities/shows.entity";
+import { Theater } from "../../db/entities/theaters.entity";
 
 export const createShow = async (req: Request, res: Response) => {
   try {
@@ -31,10 +32,83 @@ export const getShow = async (req: Request, res: Response) => {
       .from(Show, "show")
       .leftJoinAndSelect("show.movie", "movie")
       .leftJoinAndSelect("show.screen", "screen")
+      .leftJoinAndSelect("screen.theater", "theater")
       .getMany();
 
     res.send(getAllShow);
   } catch (e) {
+    return e;
+  }
+};
+
+//manage SHows
+export const getShowFilter = async (req: Request, res: Response) => {
+  try {
+    // let tempArray;
+    // let theaterIdArray = [];
+    let tempIdData: any = [];
+    let TheaterData: any = [];
+    console.log("===============================1");
+    console.log("===============================");
+    const getAllShow = await AppDataSource.createQueryBuilder()
+      .select("show")
+      .from(Show, "show")
+      .leftJoinAndSelect("show.movie", "movie")
+      .leftJoinAndSelect("show.screen", "screen")
+      .leftJoinAndSelect("screen.theater", "theater")
+      .getMany();
+
+    // getAllShow?.forEach((value, index) => {
+    //   if (tempIdData.includes(value.screen.theater.shortform)) {
+    //     const shortNameObjIndex = TheaterData.findIndex(
+    //       (newArrayValue: any) =>
+    //         newArrayValue.shortForm === value.screen.theater.shortform
+    //     );
+    //     const shortNameObj = TheaterData[shortNameObjIndex];
+    //     const time = !TheaterData[shortNameObjIndex].time.includes(value.time)
+    //       ? [...TheaterData[shortNameObjIndex].time, value.time]
+    //       : TheaterData[shortNameObjIndex].time;
+    //     const screen = !TheaterData[shortNameObjIndex].screen.includes(
+    //       value.screen.screenname
+    //     )
+    //       ? [...TheaterData[shortNameObjIndex].screen, value.screen.screenname]
+    //       : TheaterData[shortNameObjIndex].screen;
+
+    //     const showType = !TheaterData[shortNameObjIndex].screen.includes(
+    //       value.screen.screenname
+    //     )
+    //       ? [
+    //           ...TheaterData[shortNameObjIndex].showType,
+    //           [...screen, { screen: value.screen.screenname }],
+    //         ]
+    //       : [{ showType: TheaterData[shortNameObjIndex].screen }];
+
+    //     TheaterData[shortNameObjIndex] = {
+    //       ...TheaterData[shortNameObjIndex],
+    //       time,
+    //       screen,
+    //       showType,
+    //     };
+    //   } else {
+    //     tempIdData.push(value.screen.theater.shortform);
+    //     const objToStore = {
+    //       shortForm: value.screen.theater.shortform,
+    //       theaterName: value.screen.theater.name,
+    //       theaterLocation: value.screen.theater.location,
+    //       theaterAddress: value.screen.theater.address,
+    //       time: [value.time],
+    //       screen: [value.screen.screenname],
+    //       showType: [{ screen: value.screen.screenname }],
+    //     };
+    //     TheaterData.push(objToStore);
+    //   }
+    // });
+
+    // })
+    console.log("getAllShow", getAllShow);
+    res.send(getAllShow);
+  } catch (e) {
+    console.log("e :: :: :: :: :: ", e);
     return e;
   }
 };

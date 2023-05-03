@@ -21,6 +21,16 @@ export class Show extends BaseEntity {
   @Column()
   price: number;
 
+  @Column({
+    nullable: true,
+  })
+  startDate: Date;
+
+  @Column({
+    nullable: true,
+  })
+  endDate: Date;
+
   //moviesid
   @ManyToOne("Movie", (movie: Movie) => movie.id)
   movie: Movie;

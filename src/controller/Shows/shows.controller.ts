@@ -4,6 +4,7 @@ import {
   createShow,
   getOneShow,
   getShow,
+  getShowFilter,
   updateShow,
 } from "../../services/Shows/index.services";
 
@@ -30,4 +31,10 @@ export const updateShowData = async (req: Request, res: Response) => {
 export const deleteShowData = async (req: Request, res: Response) => {
   const deleteShows: any = await DeleteShow(req, res);
   res.send(deleteShows);
+};
+
+//Filter Shows
+export const filterShowData = async (req: Request, res: Response) => {
+  const filterShows: any = await getShowFilter(req, res);
+  res.send(filterShows);
 };

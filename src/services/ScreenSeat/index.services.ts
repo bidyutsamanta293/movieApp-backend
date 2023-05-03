@@ -24,12 +24,12 @@ export const createScreenSeat = async (req: Request, res: Response) => {
 
 export const getOneScreenData = async (req: Request, res: Response) => {
   try {
-    let id: any = req.query.id;
+    // let id: any = req.query.id;
 
-    let theaterId = id.split(",")[0];
-    let screenId = id.split(",")[1];
-    console.log("theaterId", id.split(",")[0]);
-    console.log("screenId", id.split(",")[1]);
+    let theaterId = req.params.theaterId;
+    let screenId = req.params.screenId;
+
+    console.log("theaterId", theaterId);
     const singleScreenSeat = await AppDataSource.createQueryBuilder()
       .select("screenSeat")
       .from(ScreenSeat, "screenSeat")

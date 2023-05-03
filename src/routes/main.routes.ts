@@ -21,6 +21,7 @@ import {
 import {
   createShowData,
   deleteShowData,
+  filterShowData,
   getOneShowData,
   getShowsData,
   updateShowData,
@@ -37,6 +38,7 @@ import {
 import {
   createBookingSeatData,
   getBookingSeatData,
+  getSingleSeatData,
 } from "../controller/Seat/seat.controller";
 
 const router = express.Router();
@@ -67,6 +69,9 @@ router.get("/getshow/:id", getOneShowData);
 router.patch("/update_show/:id", updateShowData);
 router.delete("/delete_show/:id", deleteShowData);
 
+//Filter Shows
+router.get("/filterShows", filterShowData);
+
 //User
 router.post("/create_user", createUserData);
 
@@ -76,10 +81,17 @@ router.get("/allBooking", getAllBookingData);
 
 //SCREEN_SEAT
 router.post("/add_seats", createScreenSeatData);
-router.get("/get_single_screen_seats", getOneScreenSeatData);
+router.get(
+  "/get_single_screen_seats/:theaterId/:screenId",
+  getOneScreenSeatData
+);
 
 //SEAT
 router.post("/seat_book", createBookingSeatData);
 router.get("/get_seat_book", getBookingSeatData);
+router.get(
+  "/get_single_theater_screen_data/:theaterId/:screenId",
+  getSingleSeatData
+);
 
 export default router;
