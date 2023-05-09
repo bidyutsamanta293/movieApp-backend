@@ -1,5 +1,7 @@
+// @ts-nocheck
+
 import { Request, Response } from "express";
-import { AppDataSource } from "../../utils/data-source";
+import { AppDataSource } from "../../data-source";
 import { Show } from "../../db/entities/shows.entity";
 import { Theater } from "../../db/entities/theaters.entity";
 
@@ -12,6 +14,8 @@ export const createShow = async (req: Request, res: Response) => {
       screen: param.screen,
       time: param.time,
       price: param.price,
+      // startDate: param.param,
+      // endDate: param.endDate
     };
 
     const show = Show.create(showObj);

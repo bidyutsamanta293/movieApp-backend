@@ -1,5 +1,5 @@
 import e, { Request, Response } from "express";
-import { AppDataSource } from "../../utils/data-source";
+import { AppDataSource } from "../../data-source";
 import { Theater } from "../../db/entities/theaters.entity";
 
 export const createTheater = async (req: Request, res: Response) => {

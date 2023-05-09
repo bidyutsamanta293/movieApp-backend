@@ -28,6 +28,6 @@ export class Theater extends BaseEntity {
   @OneToMany("Screen", (screen: Screen) => screen.id)
   screens: Screen[];
 
-  @OneToMany("ScreenSeat", (screenSeat: ScreenSeat) => screenSeat.id)
-  screenSeats: ScreenSeat[];
+  // @OneToMany("ScreenSeat", (screenSeat: ScreenSeat) => screenSeat.id)
+  // screenSeats: ScreenSeat[];
 }

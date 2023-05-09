@@ -19,12 +19,12 @@ export class ScreenSeat extends BaseEntity {
   seat: string;
 
   //theaterid
-  @ManyToOne("Theater", (theater: Theater) => theater.id)
-  theater: Theater;
+  // @ManyToOne("Theater", (theater: Theater) => theater.id)
+  // theater: Theater;
 
   //screenid
   @ManyToOne("Screen", (screen: Screen) => screen.id)
-  screen: Screen;
+  screen: Screen|number;
 
   @OneToMany("Seat", (seat: Seat) => seat.id)
   seats: Seat[];

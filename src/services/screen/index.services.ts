@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { Screen } from "../../db/entities/screen.entity";
-import { AppDataSource } from "../../utils/data-source";
+import { AppDataSource } from "../../data-source";
 
 export const createScreen = async (req: Request, res: Response) => {
   try {

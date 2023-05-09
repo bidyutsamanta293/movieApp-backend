@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { AppDataSource } from "../../utils/data-source";
+import { AppDataSource } from "../../data-source";
 import { Seat } from "../../db/entities/seat.entity";
 
 export const createBookingSeat = async (req: Request, res: Response) => {

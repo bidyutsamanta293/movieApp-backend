@@ -1,5 +1,5 @@
 import { Request, Response, query } from "express";
-import { AppDataSource } from "../../utils/data-source";
+import { AppDataSource } from "../../data-source";
 import { ScreenSeat } from "../../db/entities/screenSeat.entity";
 
 export const createScreenSeat = async (req: Request, res: Response) => {
@@ -7,7 +7,7 @@ export const createScreenSeat = async (req: Request, res: Response) => {
     let param = req.body;
     console.log("param", param);
     let screenSeatObj: any = {
-      theater: param.theater,
+      // theater: param.theater,
       seat: param.seat,
       screen: param.screen,
     };
