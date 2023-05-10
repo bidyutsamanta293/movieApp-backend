@@ -126,6 +126,7 @@ export const getOneShow = async (req: Request, res: Response) => {
       .from(Show, "show")
       .leftJoinAndSelect("show.movie", "movie")
       .leftJoinAndSelect("show.screen", "screen")
+      .leftJoinAndSelect("screen.theater", "theater")
       .where("movie.slug = :id", { id: id })
       .getMany();
 
