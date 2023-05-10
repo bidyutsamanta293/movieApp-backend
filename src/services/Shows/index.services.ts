@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 import { Request, Response } from "express";
-import { AppDataSource } from "../../data-source";
+import { AppDataSource } from "../../utils/data-source";
 import { Show } from "../../db/entities/shows.entity";
 import { Theater } from "../../db/entities/theaters.entity";
 
@@ -126,8 +126,8 @@ export const getOneShow = async (req: Request, res: Response) => {
       .from(Show, "show")
       .leftJoinAndSelect("show.movie", "movie")
       .leftJoinAndSelect("show.screen", "screen")
-      .where("show.id = :id", { id: id })
-      .getOne();
+      .where("movie.id = :id", { id: id })
+      .getMany();
 
     //  let productVarientData = await AppDataSource.createQueryBuilder()
     //     .select("pv")
@@ -153,7 +153,7 @@ export const getOneShow = async (req: Request, res: Response) => {
   } catch (e) {
     return e;
   }
-};
+}; 
 
 export const updateShow = async (req: Request, res: Response) => {
   try {

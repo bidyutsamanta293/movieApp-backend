@@ -1,5 +1,5 @@
 import e, { Request, Response } from "express";
-import { AppDataSource } from "../../data-source";
+import { AppDataSource } from "../../utils/data-source";
 import { Booking } from "../../db/entities/booking.entity";
 
 export const craeteBooking = async (req: Request, res: Response) => {

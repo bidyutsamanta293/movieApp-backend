@@ -2,14 +2,14 @@
 
 // import { Seeder } from "typeorm-seeding";
 import { DataSource, DataSourceOptions } from "typeorm";
-import { Movie } from "./db/entities/movies.entity";
-import { Theater } from "./db/entities/theaters.entity";
-import { Screen } from "./db/entities/screen.entity";
-import { Show } from "./db/entities/shows.entity";
-import { User } from "./db/entities/user.entity";
-import { Booking } from "./db/entities/booking.entity";
-import { ScreenSeat } from "./db/entities/screenSeat.entity";
-import { Seat } from "./db/entities/seat.entity";
+import { Movie } from "../db/entities/movies.entity";
+import { Theater } from "../db/entities/theaters.entity";
+import { Screen } from "../db/entities/screen.entity";
+import { Show } from "../db/entities/shows.entity";
+import { User } from "../db/entities/user.entity";
+import { Booking } from "../db/entities/booking.entity";
+import { ScreenSeat } from "../db/entities/screenSeat.entity";
+import { Seat } from "../db/entities/seat.entity";
 
 import { SeederOptions } from 'typeorm-extension';
 import { PostgresConnectionOptions } from "typeorm/driver/postgres/PostgresConnectionOptions";

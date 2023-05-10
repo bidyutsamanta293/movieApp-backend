@@ -1,5 +1,5 @@
 import { Request, Response, query } from "express";
-import { AppDataSource } from "../../data-source";
+import { AppDataSource } from "../../utils/data-source";
 import { ScreenSeat } from "../../db/entities/screenSeat.entity";
 
 export const createScreenSeat = async (req: Request, res: Response) => {
@@ -26,17 +26,16 @@ export const getOneScreenData = async (req: Request, res: Response) => {
   try {
     // let id: any = req.query.id;
 
-    let theaterId = req.params.theaterId;
+    // let theaterId = req.params.theaterId;
     let screenId = req.params.screenId;
 
-    console.log("theaterId", theaterId);
+    console.log("theaterId", screenId);
     const singleScreenSeat = await AppDataSource.createQueryBuilder()
       .select("screenSeat")
       .from(ScreenSeat, "screenSeat")
-      .leftJoinAndSelect("screenSeat.theater", "theater")
       .leftJoinAndSelect("screenSeat.screen", "screen")
+      .leftJoinAndSelect("screen.theater", "theater")
       .where("screenSeat.screen = :id", { id: screenId })
-      .andWhere("screenSeat.theater = :theaterId", { theaterId: theaterId })
       .getMany();
     res.send(singleScreenSeat);
   } catch (e) {

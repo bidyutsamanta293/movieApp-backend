@@ -4,15 +4,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --exec ts-node server.ts",
-    "build": "tsc",
-    "dbseed": "npm run build && node src/db/seeds/screenSeat.seed.ts"
+    "dev": "nodemon --exec ts-node server.ts"
   },
   "repository": "git@global-github:bidyutsamanta293/movieApp-backend.git",
   "author": "Arman Khan <work.armankhan@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "@types/cors": "^2.8.13",
+    "@types/faker": "^6.6.9",
     "@types/node": "^18.16.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",

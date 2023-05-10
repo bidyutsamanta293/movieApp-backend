@@ -82,7 +82,7 @@ router.get("/allBooking", getAllBookingData);
 //SCREEN_SEAT
 router.post("/add_seats", createScreenSeatData);
 router.get(
-  "/get_single_screen_seats/:theaterId/:screenId",
+  "/get_single_screen_seats/:screenId",
   getOneScreenSeatData
 );
 

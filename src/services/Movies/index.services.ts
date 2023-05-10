@@ -1,6 +1,6 @@
 import e, { Request, Response } from "express";
 import { Movie } from "../../db/entities/movies.entity";
-import { AppDataSource } from "../../data-source";
+import { AppDataSource } from "../../utils/data-source";
 
 export const createMovie = async (req: Request, res: Response) => {
   try {

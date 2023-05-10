@@ -1,5 +1,5 @@
 import e, { Request, Response } from "express";
-import { AppDataSource } from "../../data-source";
+import { AppDataSource } from "../../utils/data-source";
 import { User } from "../../db/entities/user.entity";
 
 export const createUser = async (req: Request, res: Response) => {
