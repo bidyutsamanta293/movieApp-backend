@@ -126,7 +126,7 @@ export const getOneShow = async (req: Request, res: Response) => {
       .from(Show, "show")
       .leftJoinAndSelect("show.movie", "movie")
       .leftJoinAndSelect("show.screen", "screen")
-      .where("movie.id = :id", { id: id })
+      .where("movie.slug = :id", { id: id })
       .getMany();
 
     //  let productVarientData = await AppDataSource.createQueryBuilder()
@@ -153,7 +153,7 @@ export const getOneShow = async (req: Request, res: Response) => {
   } catch (e) {
     return e;
   }
-}; 
+};
 
 export const updateShow = async (req: Request, res: Response) => {
   try {
