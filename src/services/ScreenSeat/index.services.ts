@@ -37,7 +37,7 @@ export const getOneScreenData = async (req: Request, res: Response) => {
       .leftJoinAndSelect("screen.theater", "theater")
       .where("screenSeat.screen = :id", { id: screenId })
       .getMany();
-    res.send(singleScreenSeat);
+    return singleScreenSeat;
   } catch (e) {
     return e;
   }

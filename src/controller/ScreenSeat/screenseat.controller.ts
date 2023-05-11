@@ -10,6 +10,6 @@ export const createScreenSeatData = async (req: Request, res: Response) => {
 };
 
 export const getOneScreenSeatData = async (req: Request, res: Response) => {
-  const getSingleScreenSeats = await getOneScreenData(req, res);
+  const getSingleScreenSeats: any = await getOneScreenData(req, res);
   res.send(getSingleScreenSeats);
 };
